@@ -1,0 +1,15 @@
+{
+	"id": "MarshiiRose",
+		"name": "Marshii Mod",
+		"author": ["MarshiiRose"],
+		"description": "So I'm learning how to do this now ig",
+		"prefix": "Marshii",
+		"main_file": "MarshiiMod/main.lua",
+		"badge_colour": "F9A6FF",
+		"badge_text_colour": "FFFFFF",
+		"display_name": "Marshii",
+		"version": "1.0.0~BETA-1",
+		"dependencies": [
+			"Steamodded (>=1.*)"
+		]
+}
