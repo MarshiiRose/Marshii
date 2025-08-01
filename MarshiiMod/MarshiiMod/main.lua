@@ -18,20 +18,29 @@ SMODS.Rarity {
         name = 'Fuck You'
     },
     badge_colour = HEX("292929"),
-    default_weight = 10
+    pools = {
+        ["Joker"] = true,
+        ["Joker"] = { rate = 0.01 },
+    },
+    default_weight = 0.01
+}
+
+SMODS.Rarity {
+    key = 'epic',
+    loc_txt = {
+        name = 'Epic'
+    },
+    badge_colour = HEX("FF75E6"),
+    pools = {
+        ["Joker"] = true,
+        ["Joker"] = { rate = 0.01 },
+    },
+    default_weight = 0.01
 }
 
 --marshii
 SMODS.Joker {
     key = 'marshii',
-    loc_txt = {
-        name = 'Marshii',
-        text = {
-            'Gives {X:mult,C:white}x#1#{} Mult',
-            '{C:inactive}MarshiiRose, now in your favorite{}',
-            '{C:inactive}poker-themed deckbuilding roguelike!{}',
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 0, y = 0},
@@ -55,19 +64,16 @@ SMODS.Joker {
                 colour = G.C.MULT
             }
         end
-    end
+    end,
+    -- badges
+ 	set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('nyaa~', HEX('8CADFF'), G.C.WHITE, 1 )
+ 	end,
 }
 
 --lapiz
 SMODS.Joker {
     key = 'lapiz',
-    loc_txt = {
-        name = 'Lapiz',
-        text = {
-            'Gives {C:chips}+#1#{} Chips',
-            '{C:inactive}"Woof"{}'
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 1, y = 0},
@@ -89,20 +95,16 @@ SMODS.Joker {
                 chips = card.ability.extra.chips
             }
         end
-    end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Lazuli', HEX('4843e6'), G.C.WHITE, 1 )
+ 	end
 }
 
 --shoobell
 SMODS.Joker {
     key = 'shoobell',
-    loc_txt = {
-        name = 'Shoobell',
-        text = {
-            'All {C:attention}Wild Cards{} give',
-            '{C:chips}+#1#{} Chips and {C:mult}+#2#{} Mult when scored',
-            '{C:inactive}A shoebill stork... but cooler',
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 2, y = 0},
@@ -126,19 +128,16 @@ SMODS.Joker {
                 mult = card.ability.extra.mult
             }
         end
-    end
+    end,
+    -- badges
+ 	set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('IRL Jimbo', HEX('76c8e3'), G.C.WHITE, 1 )
+ 	end
 }
 
 --jovi
 SMODS.Joker {
     key = 'jovi',
-    loc_txt = {
-        name = 'Jovial',
-        text = {
-            'Retriggers {C:attention}first{} and {C:attention}last played card',
-            '{C:inactive}One of my friends silly dog!{}',
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 3, y = 0},
@@ -161,20 +160,16 @@ SMODS.Joker {
             }
             end
         end
-    end
+    end,
+    -- badges
+ 	set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('IRL Jimbo', HEX('76c8e3'), G.C.WHITE, 1 )
+ 	end
 }
 
 --jumperbumper
 SMODS.Joker {
     key = 'jumperbumper',
-    loc_txt = {
-        name = 'Jumperbumper',
-        text = {
-            'Earn {C:money}$#1# for ',
-            'every {C:attention}card destroyed',
-            '{C:inactive}"Insert Cash or Select Payment Type"{}'
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 0, y = 2},
@@ -201,21 +196,16 @@ SMODS.Joker {
                     dollars = destroyed * card.ability.extra.money
                 }
         end
-    end
+    end,
+    -- badges
+ 	set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('ICoSPT', HEX('ffea63'), G.C.WHITE, 1 )
+ 	end
 }
 
 --enders
 SMODS.Joker {
     key = 'endersdoom',
-    loc_txt = {
-        name = 'EndersDoom',
-        text = {
-            'Gains {X:mult,C:white}x#2#{} Mult whenever',
-            'a {C:attention}spectral card{} is used',
-            '{C:inactive}(Currently {X:mult,C:white}x#1#{C:inactive} Mult)',
-            '{C:inactive}"Can I give you the quote tomorrow"{}',
-        }
-    },
     -- info stuff
     config = { extra = { Xmult = 1, Xmult_gain = 0.25 } },
     atlas = 'MarshiiModded',
@@ -248,19 +238,15 @@ SMODS.Joker {
                 colour = G.C.MULT
             }
        end
-    end
+    end,
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }
 
 --colin
 SMODS.Joker {
     key = 'ocolin',
-    loc_txt = {
-        name = 'oColin',
-        text = {
-            'Retrigger all {C:hearts}Hearts{} cards, including ones in hand',
-            "{C:inactive}He's just a squishy lil guy!{}"
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 2, y = 2},
@@ -284,20 +270,15 @@ SMODS.Joker {
                }
             end
         end
-    end
+    end,
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }
 
 --podfour
 SMODS.Joker {
     key = 'podfour',
-    loc_txt = {
-        name = 'Podfour',
-        text = {
-            'All {C:attention}steel cards{} give',
-            '{C:chips}+#1#{} Chips when in hand',
-            '{C:inactive}"cat planet 92%"{}'
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 3, y = 2},
@@ -315,55 +296,54 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            return {
-                chips = card.ability.extra.chips
-            }
+            if SMODS.has_enhancement(context.other_card, 'm_steel') then 
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
         end
-    end
+    end,
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }
 
 --acid
 SMODS.Joker {
     key = 'acid',
-    loc_txt = {
-        name = 'Acid',
-        text = {
-            '',
-            '{C:inactive}"Death cant stop me."{}',
-            ''
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 4, y = 2},
     soul_pos = {x = 4, y = 3},
-    rarity = 3,
+    rarity = 'Marshii_epic',
     cost = 4,
     blueprint_compat = true,
 	perishable_compat = true,
 	eternal_compat = true,
     unlocked = true,
     -- Scoring
-    config = { extra = { } },
+    config = { extra = { chips = 1 } },
     loc_vars = function(self, info_queue, card)
-
+        return { vars = { card.ability.extra.chips } }
     end,
     calculate = function(self, card, context)
+        if context.final_scoring_step then
+            if G.GAME.blind.chips > G.GAME.chips then
+                return {
+                    chips = G.GAME.chips
+                }
+            end
+        end
+    end,
 
-    end
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }
 
 --nels femboy
 SMODS.Joker {
     key = 'nels',
-    loc_txt = {
-        name = 'Nhelv Nelson',
-        text = {
-            '{X:mult,C:white}x#1#{} mult but {C:attention}-#2#{} hand size',
-            '{C:inactive}"May 3rd"{}',
-            ''
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 5, y = 2},
@@ -391,20 +371,16 @@ SMODS.Joker {
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.hand:change_size(card.ability.extra.h_size)
-    end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }
 
 --viat
 SMODS.Joker {
     key = 'vita',
-    loc_txt = {
-        name = 'Vita the Proto',
-        text = {
-            'Gains {X:mult,C:white}x#1#{} mult for each {C:attention}lucky card{} in your {C:attention}full deck{}',
-            '{C:inactive}(Currently {}{X:mult,C:white}x#2#{}{C:inactive}){}',
-            '{C:inactive}"paws at you"{}'
-        }
-    },
     -- info stuff
     atlas = 'MarshiiModded',
     pos = {x = 6, y = 2},
@@ -438,5 +414,9 @@ SMODS.Joker {
                 Xmult = 1 + card.ability.extra.Xmult * lucky_tally,
             }
         end
-    end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+ 	end
 }

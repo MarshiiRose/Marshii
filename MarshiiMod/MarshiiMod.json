@@ -8,7 +8,7 @@
 		"badge_colour": "F9A6FF",
 		"badge_text_colour": "FFFFFF",
 		"display_name": "Marshii",
-		"version": "1.0.0~BETA-1",
+		"version": "1.0.0",
 		"dependencies": [
 			"Steamodded (>=1.*)"
 		]
