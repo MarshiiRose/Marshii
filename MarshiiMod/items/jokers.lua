@@ -11,6 +11,7 @@ SMODS.Joker {
     -- info stuff
     atlas = 'MarshiiJokers',
     pos = {x = 0, y = 0},
+    soul_pos = { x = 0, y = 1 },
     rarity = 3,
     cost = 8,
     blueprint_compat = true,
@@ -75,6 +76,7 @@ SMODS.Joker {
     -- info stuff
     atlas = 'MarshiiJokers',
     pos = {x = 2, y = 0},
+    soul_pos = { x = 2, y = 1 },
     rarity = 1,
     cost = 6,
     blueprint_compat = true,
@@ -107,6 +109,7 @@ SMODS.Joker {
     -- info stuff
     atlas = 'MarshiiJokers',
     pos = {x = 3, y = 0},
+    soul_pos = {x = 3, y = 1},
     rarity = 1,
     cost = 8,
     blueprint_compat = true,
@@ -365,7 +368,7 @@ SMODS.Joker {
 	eternal_compat = true,
     unlocked = true,
     -- Scoring
-    config = { extra = { Xmult = 500000, h_size = 12, cursed_rounds = 0, total_rounds = 1} },
+    config = { extra = { Xmult = 500000, h_size = 67, cursed_rounds = 0, total_rounds = 2} },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.Xmult, card.ability.extra.h_size, card.ability.extra.total_rounds, card.ability.extra.cursed_rounds } }
     end,
@@ -413,19 +416,21 @@ SMODS.Joker {
 	eternal_compat = false,
     unlocked = true,
     -- Scoring
-    config = { extra = { h_size = 44, mult = 999999, xmult = 999999, chips = 999999, xchips = 999999 } },
+    config = { extra = { h_size = , mult = 696742041, xmult = 696742041, chips = 696742041, xchips = 696742041 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.xmult, card.ability.extra.chips, card.ability.extra.xchips }}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-            return {
-                mult = card.ability.extra.mult,
-                xmult = card.ability.extra.xmult,
-                chips = card.ability.extra.chips,
-                xchips = card.ability.extra.xchips,
-                message = 'MEOW'
-            }
+            for i = 0, 20, 1 do
+                return {
+                    mult = card.ability.extra.mult,
+                    xmult = card.ability.extra.xmult,
+                    chips = card.ability.extra.chips,
+                    xchips = card.ability.extra.xchips,
+                    message = ';3'
+                }
+            end
         end
     end,
 
@@ -440,3 +445,137 @@ SMODS.Joker {
  		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
  	end
 }
+
+--yeeter
+SMODS.Joker {
+    key = 'yeeter',
+    -- info stuff
+    atlas = 'MarshiiJokers',
+    pos = {x = 0, y = 4},
+    soul_pos = {x = 0, y = 5},
+    rarity = 2,
+    cost = 4,
+    blueprint_compat = true,
+	perishable_compat = true,
+	eternal_compat = true,
+    unlocked = true,
+    -- Scoring
+    config = { extra = { gift_gain = 0, arcana_gift = 15 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.gift_gain, card.ability.extra.arcana_gift }}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            card.ability.extra.gift_gain = card.ability.extra.gift_gain + 1
+            if  card.ability.extra.gift_gain >= card.ability.extra.arcana_gift then
+                while #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and card.ability.extra.gift_gain > 15 do
+                    SMODS.add_card {
+                        set = 'Tarot'
+                    }
+                    card.ability.extra.gift_gain = card.ability.extra.gift_gain - 15
+                    return {
+                        message = 'Royal Gift!'
+                    }
+                end
+                card.ability.extra.gift_gain = 0
+            end
+        end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
+ 	end
+}
+
+--enni
+[[
+SMODS.Joker {
+    key = 'enni',
+    -- info stuff
+    atlas = 'MarshiiJokers',
+    pos = {x = 1, y = 4},
+    soul_pos = {x = 1, y = 5},
+    rarity = 2,
+    cost = 5,
+    blueprint_compat = true,
+	perishable_compat = true,
+	eternal_compat = true,
+    unlocked = true,
+    -- Scoring
+    config = { extra = {  } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = {  } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local scored_card = context.scoring_hand[#context.scoring_hand]
+            scored_card:set_edition('m_wooden', nil, true)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    scored_card:juice_up()
+                    return true
+                end
+            }))
+        end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
+ 	end
+}
+]]
+
+--cracker
+SMODS.Joker {
+    key = 'cracker',
+    -- info stuff
+    atlas = 'MarshiiJokers',
+    pos = {x = 2, y = 4},
+    soul_pos = {x = 2, y = 5},
+    rarity = 2,
+    cost = 5,
+    blueprint_compat = true,
+	perishable_compat = true,
+	eternal_compat = true,
+    unlocked = true,
+    -- Makes wooden cards scale faster!!
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
+ 	end
+}
+
+--mantis
+[[
+SMODS.Joker {
+    key = 'mantis',
+    -- info stuff
+    atlas = 'MarshiiJokers',
+    pos = {x = 3, y = 4},
+    soul_pos = {x = 3, y = 5},
+    rarity = 3,
+    cost = 8,
+    blueprint_compat = true,
+	perishable_compat = true,
+	eternal_compat = true,
+    unlocked = true,
+    -- Scoring
+    config = { extra = { chips = 0, mult = 0 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = {  }}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and SMODS.has_enhancement(context.other_card, 'm_wooden') then
+
+        end
+        if context.main then
+            return {
+                chips = card.ability.extra.chips,
+                mult = card.ability.extra.mult
+            }
+        end
+    end,
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
+ 	end
+}
+]]
