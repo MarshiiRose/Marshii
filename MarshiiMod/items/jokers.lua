@@ -488,7 +488,7 @@ SMODS.Joker {
 }
 
 --enni
-[[
+--[[
 SMODS.Joker {
     key = 'enni',
     -- info stuff
@@ -545,7 +545,7 @@ SMODS.Joker {
 }
 
 --mantis
-[[
+--[[
 SMODS.Joker {
     key = 'mantis',
     -- info stuff
@@ -580,3 +580,4 @@ SMODS.Joker {
 }
 
 ]]
+
