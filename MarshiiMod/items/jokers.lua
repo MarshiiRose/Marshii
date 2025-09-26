@@ -416,7 +416,7 @@ SMODS.Joker {
 	eternal_compat = false,
     unlocked = true,
     -- Scoring
-    config = { extra = { h_size = , mult = 696742041, xmult = 696742041, chips = 696742041, xchips = 696742041 } },
+    config = { extra = { h_size = 696742041, mult = 696742041, xmult = 696742041, chips = 696742041, xchips = 696742041 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.xmult, card.ability.extra.chips, card.ability.extra.xchips }}
     end,
@@ -578,4 +578,5 @@ SMODS.Joker {
  		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
  	end
 }
+
 ]]
