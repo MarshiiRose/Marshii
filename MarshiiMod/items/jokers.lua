@@ -642,4 +642,6 @@ SMODS.Joker {
  		badges[#badges+1] = create_badge('Waffler', HEX('c4a26e'), G.C.WHITE, 1 )
  	end
 }
+
 ]]
+
