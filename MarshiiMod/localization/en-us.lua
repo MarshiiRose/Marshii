@@ -24,8 +24,19 @@ return {
             j_marshii_lapiz = {
                 name = 'Lapiz',
                 text = {
-                    'Gives {C:chips}+#1#{} Chips',
+                    '{C:chips}+#1#{} chips',
+                    'Gains {C:chips}+#2#{} chips when buying any joker',
+                    'That has the {B:1,C:white}Furry{} badge',
                     '{C:inactive}"Woof"{}'
+                },
+            },
+            j_marshii_qrstve = {
+                name = 'Qrstve',
+                text = {
+                    '{C:mult}+#1#{} mult',
+                    'Gains {C:mult}+#2#{} mult when buying any joker',
+                    'That has the {B:1,C:white}Furry{} badge',
+                    '{C:inactive}"beware of my soft fluffy tail"{}'
                 },
             },
             j_marshii_shoobell = {

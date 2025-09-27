@@ -46,27 +46,89 @@ SMODS.Joker {
     atlas = 'MarshiiJokers',
     pos = {x = 1, y = 0},
     soul_pos = {x = 1, y = 1},
-    rarity = 1,
+    rarity = 3,
     cost = 5,
     blueprint_compat = true,
 	perishable_compat = true,
 	eternal_compat = true,
     unlocked = true,
     -- scoring
-    config = { extra = { chips = 100 } },
+    config = { extra = { chips = 100, chips_gain = 100, xchips = 1.5 } },
     loc_vars = function(self,info_queue,card)
-        return {vars = {card.ability.extra.chips} }
+        return {vars = {card.ability.extra.chips, card.ability.extra.chips_gain, card.ability.extra.xchips, colours = { HEX('FF9CB8') } } }
     end,
     calculate = function(self,card,context)
         if context.joker_main then
+            if next(SMODS.find_card('j_marshii_qrstve')) then 
+                return {
+                    chips = card.ability.extra.chips,
+                    xchips = card.ability.extra.xchips
+                }
+            else
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+
+        if context.card_added and context.cardarea == G.jokers and not context.blueprint then
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
             return {
-                chips = card.ability.extra.chips
+                message = 'Fuzzy!'
             }
         end
     end,
 
     set_badges = function(self, card, badges)
  		badges[#badges+1] = create_badge('Lazuli', HEX('4843e6'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge('Furry', HEX('ff9cb8'), G.C.WHITE, 0.8 )
+ 	end
+}
+
+--Qitty
+SMODS.Joker {
+    key = 'qrstve',
+    -- info stuff
+    atlas = 'MarshiiJokers',
+    pos = {x = 4, y = 0},
+    soul_pos = {x = 4, y = 1},
+    rarity = 3,
+    cost = 5,
+    blueprint_compat = true,
+	perishable_compat = true,
+	eternal_compat = true,
+    unlocked = true,
+
+    config = { extra = { mult = 10, mult_gain = 10, xmult = 2 } },
+    loc_vars = function(self,info_queue,card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain, card.ability.extra.xmult, colours = { HEX('FF9CB8' ) } } }
+    end,
+
+    calculate = function(self,card,context)
+        if context.joker_main then
+            if next(SMODS.find_card('j_marshii_lapiz')) then
+                return {
+                    mult = card.ability.extra.mult,
+                    xmult = card.ability.extra.xmult
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+
+        if context.card_added and context.cardarea == G.jokers and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+            return {
+                message = 'Fluffy!'
+            }
+        end
+    end,
+
+    set_badges = function(self, card, badges)
+ 		badges[#badges+1] = create_badge('Lazuli', HEX('4843e6'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge('Furry', HEX('ff9cb8'), G.C.WHITE, 0.8 )
  	end
 }
 
@@ -275,6 +337,7 @@ SMODS.Joker {
     end,
     set_badges = function(self, card, badges)
  		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge('Furry', HEX('ff9cb8'), G.C.WHITE, 0.8 )
  	end
 }
 
@@ -351,6 +414,7 @@ SMODS.Joker {
 
     set_badges = function(self, card, badges)
  		badges[#badges+1] = create_badge('SillyMaxxer', HEX('c483de'), G.C.WHITE, 1 )
+        badges[#badges+1] = create_badge('Furry', HEX('ff9cb8'), G.C.WHITE, 0.8 )
  	end
 }
 
@@ -416,7 +480,7 @@ SMODS.Joker {
 	eternal_compat = false,
     unlocked = true,
     -- Scoring
-    config = { extra = { h_size = , mult = 696742041, xmult = 696742041, chips = 696742041, xchips = 696742041 } },
+    config = { extra = { h_size = 696742041, mult = 696742041, xmult = 696742041, chips = 696742041, xchips = 696742041 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.xmult, card.ability.extra.chips, card.ability.extra.xchips }}
     end,
@@ -488,7 +552,7 @@ SMODS.Joker {
 }
 
 --enni
-[[
+--[[
 SMODS.Joker {
     key = 'enni',
     -- info stuff
@@ -545,7 +609,7 @@ SMODS.Joker {
 }
 
 --mantis
-[[
+--[[
 SMODS.Joker {
     key = 'mantis',
     -- info stuff

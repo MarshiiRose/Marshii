@@ -40,7 +40,8 @@ SMODS.UndiscoveredSprite{
 
 --Lazuli
 local lazulis = {
-    'marshii_lapiz'
+    'marshii_lapiz',
+    'marshii_qrstve'
 }
 
 SMODS.Consumable {
@@ -172,9 +173,9 @@ SMODS.Consumable {
 --wafflecord
 local waffles = {
     'marshii_yeeter',
-    'marshii_enni',
+    --'marshii_enni',
     'marshii_cracker',
-    'marshii_mantis'
+    --'marshii_mantis'
 }
 
 SMODS.Consumable {
